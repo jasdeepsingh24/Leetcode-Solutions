@@ -7,25 +7,16 @@
 // @lc code=start
 class Solution {
     public List<Integer> getRow(int rowIndex) {
-        List<Integer> ans = new ArrayList<>();
-        if (rowIndex == 0) {
-            ans.add(1);
-            return ans;
-        }
-        if (rowIndex == 1) {
-            ans.add(1);
-            ans.add(1);
-            return ans;
+        Integer[] a = new Integer[rowIndex + 1];
+        Arrays.fill(a, 0);
+        a[0] = 1;
+
+        for (int i = 1; i <= rowIndex; i++) {
+            for (int j = i; j > 0; j--)
+                a[j] += a[j - 1];
         }
 
-        List<Integer> smallAns = getRow(rowIndex - 1);
-
-        ans.add(smallAns.get(0));
-        for (int i = 0; i < smallAns.size() - 1; i++) {
-            ans.add(smallAns.get(i) + smallAns.get(i + 1));
-        }
-        ans.add(smallAns.get(smallAns.size() - 1));
-        return ans;
+        return Arrays.asList(a);
     }
 }
 // @lc code=end

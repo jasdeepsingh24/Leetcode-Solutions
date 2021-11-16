@@ -5,6 +5,8 @@
  */
 
 // @lc code=start
+import java.util.*;
+
 class Solution {
     public int countPrimes(int n) {
         if (n < 2)

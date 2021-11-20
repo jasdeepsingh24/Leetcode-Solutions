@@ -73,6 +73,7 @@ class Twitter {
     class user {
         int userId;
         HashSet<Integer> followers;
+
     }
 }
 

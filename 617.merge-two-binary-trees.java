@@ -22,8 +22,18 @@
  */
 class Solution {
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
-        
+        if (root1 == null && root2 == null)
+            return null;
+        int rt = 0;
+        if (root1 != null)
+            rt += root1.val;
+        if (root2 != null)
+            rt += root2.val;
+        TreeNode root = new TreeNode(rt);
+
+        root.left = mergeTrees(root1 != null ? root1.left : null, root2 != null ? root2.left : null);
+        root.right = mergeTrees(root1 != null ? root1.right : null, root2 != null ? root2.right : null);
+        return root;
     }
 }
 // @lc code=end
-

@@ -20,6 +20,11 @@ class Solution {
 
     public List<List<Integer>> fun(List<Integer> l) {
         List<List<Integer>> ans = new ArrayList<>();
+        if (l.size() == 0) {
+            List<Integer> temp = new ArrayList<>();
+            ans.add(temp);
+            return ans;
+        }
         // if(map.containsKey(key))
         // return map.get(key);
         for (int i = 0; i < l.size(); i++) {
@@ -27,14 +32,8 @@ class Solution {
 
             List<List<Integer>> x = fun(l);
             l.add(i, t);
-            if (x.size() == 0) {
-                List<Integer> temp = new ArrayList<>();
-                temp.add(t);
-                ans.add(temp);
-            } else {
-                for (int j = 0; j < x.size(); j++) {
-                    x.get(j).add(t);
-                }
+            for (int j = 0; j < x.size(); j++) {
+                x.get(j).add(t);
             }
 
             ans.addAll(x);

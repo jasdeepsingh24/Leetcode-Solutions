@@ -18,7 +18,7 @@ class Solution {
             left[i] = maxLeft;
             // System.out.print(left[i]);
         }
-        System.out.println();
+        // System.out.println();
         for (int i = n - 1; i >= 0; i--) {
             maxRight = Math.max(maxRight, height[i]);
             right[i] = maxRight;

@@ -23,4 +23,5 @@ class Solution {
         return pairs;
     }
 }
+
 // @lc code=end
